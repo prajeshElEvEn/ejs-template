@@ -10,7 +10,7 @@ const port = process.env.PORT || 8000
 app.use(express.static('public'))
 app.use('/styles', express.static(__dirname + 'public/styles'))
 app.use('/src', express.static(__dirname + 'public/src'))
-app.use('/images', express.static(__dirname + 'public/assets/images'))
+app.use('/assets', express.static(__dirname + 'public/assets'))
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
