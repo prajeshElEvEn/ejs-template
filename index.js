@@ -1,6 +1,8 @@
 const express = require('express');
 const dotenv = require('dotenv').config()
 const logger = require('node-color-log')
+const http = require('http');
+const reload = require('reload');
 
 const app = express()
 const port = process.env.PORT || 8000
@@ -15,6 +17,9 @@ app.set('view engine', 'ejs')
 
 app.use('/', require('./routes/pageRoutes'))
 
-app.listen(port, () => {
+const server = http.createServer(app)
+
+server.listen(port, () => {
     logger.success(`Server running on ${port}`)
 })
+reload(app)
